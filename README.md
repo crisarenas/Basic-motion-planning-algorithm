@@ -15,8 +15,8 @@ Given the start point, this project aims to find the goal point in a 2D matrix .
 
 
 ## Project Structure:
-- **src folder**: contains de different algorithms that have been implemented.
-- **maps**:
+- **src/algorithms**: contains the BFS algorithm and the Greedy algorithms that have been implemented.
+- **maps**: each map contains a `map.csv` with the matrix, a ``map.png ``with a picture of the map and a ``README.md`` that specifies the start and goal point.
 - **Notebook**: jupyter notebook that contains blabla
 
 
