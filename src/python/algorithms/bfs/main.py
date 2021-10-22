@@ -1,5 +1,4 @@
 import time
-start = time.time()
 
 #! /usr/bin/env python
 '''
@@ -96,6 +95,7 @@ dumpMap()
 
 
 ############Empieza el algoritmo
+start = time.time()
 done = False # clásica condición de parada del bucle `while`
 goalParentId = -1 # -1: parentId del nodo goal PROVISIONAL cuando aun no se ha resuelto
 

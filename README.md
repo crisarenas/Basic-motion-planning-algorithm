@@ -7,6 +7,7 @@ The greedy algorithm implemented here is a DFS algorithm. The priority order is 
 
 
 **General notation**
+
 Example shown below.
 * 0 = free space
 * 1 = ocupued (wall/obstacle)
@@ -17,30 +18,28 @@ Example shown below.
 <img src="media/matrix.jpg" alt="example_matrix" width="300"/>
 
 
-# Extras
-**1.** Github 
+# 1. Extras
+
+
+**IMPORTANT:** inside ``src/python/algorithms`` there are two types of folders: algorithm_basic and algorithm_extras. The *basic* folder contains the algorithm with the minimum requirements just in the case that the ``main.py`` of the *extras* folder doesn't work properly for any reason. 
 - The code works for every map.
 - Github repository with commit history.
 - Functions in a separate folder.
 
 
-## Output:
-At the beggining of the output you will find the initial configuration followed by the iterations and finally the found path, time of execution and the number of nodes visited.
+## 2. Project Structure:
+- **src/python/algorithms**: contains the BFS algorithm and the Greedy algorithms that have been implemented. 
 
-## Project Structure:
-- **src/python/algorithms**: contains the BFS algorithm and the Greedy algorithms that have been implemented.
 - **maps**: each map contains a `map.csv` with the matrix, a ``map.png ``with a picture of the map and a ``README.md`` that specifies the start and goal point.
+
 - **src/python/algorithms/AlgorithmsNotebook**: jupyter notebook that contains the trials that I have done during the development of the project:
 
 
+## Output:
+At the beggining of the output you will find the initial configuration followed by the iterations and finally the found path, time of execution and the number of nodes visited.
 
-## Considerations:
-### C1
-blabla
-### C2
-blabla
 
 
 ## References:
 * [Proffesor repository.](https://github.com/jgvictores/master-ipr)
-* [Youtube video explaining DFS method.](https://www.youtube.com/watch?v=W9F8fDQj7Ok)
+* [Youtube video explaining DFS algorithm.](https://www.youtube.com/watch?v=W9F8fDQj7Ok)
