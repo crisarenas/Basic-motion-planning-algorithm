@@ -17,8 +17,8 @@
 import time
 from functions import *
 
-# Initial values are hard coded
-MAP_PATH = "../../../../map2/map2.csv"
+# First we choose a map (functions file)
+MAP_PATH = selectMap()
 
 # List nodes: contains the graph nodes
 nodes = []
@@ -34,18 +34,21 @@ with open(MAP_PATH) as f:
         charMap.append(charLine)
         line = f.readline()
         
-START_X,START_Y,END_X,END_Y = inputStartEnd(charMap)
+# Let's ask for the start an goal points
+START_X,START_Y,END_X,END_Y = inputStartEnd(charMap) # in functions folder
 
+# Let's make sure that those coordinates are valid (free space)
+checkPoints(charMap,START_X,START_Y,END_X,END_Y)     # in functions folder
+    
+# Add the references to the start and goal points once they are valid
+charMap[START_X][START_Y] = '3'
+charMap[END_X][END_Y] = '4'
 
-
-# Create first node: parentId = -2 since it's start node
-init = Node(START_X, START_Y, 0, -2) # Node class object
+# Now we can create the first node: parentId = -2 since it's start node
+init = Node(START_X, START_Y, 0, -2) # Node class object defined in functions.py
 
 # Add the first node (start node) to the list nodes
 nodes.append(init)
-
-
-
 
 
 # Function that shows the map on terminal
@@ -53,35 +56,9 @@ def dumpMap():
     for line in charMap:
         print(line)
 
-def inputStartEnd():
-    print ("SELECTED CONFIGURATION:\n"+
-                        "~~~~~~~~~~~~~~~~~~~~~~~\n"+
-                        "Remember!\n"+
-                         "x = down is +\n"+
-                         "y = right is +\n"+
-                         "id = unique node id\n"+
-                         "parentId = id of the node that found the current node\n")   
-
-
-
-
-# Add the references to the start and goal point
-charMap[START_X][START_Y] = '3'
-charMap[END_X][END_Y] = '4'
-
-# Info + Show map with the start and goal points placed
-def initialCheck():
-    print ("SELECTED CONFIGURATION:\n"+
-                        "~~~~~~~~~~~~~~~~~~~~~~~\n"+
-                        "Remember!\n"+
-                         " x = down is +\n"+
-                         " y = right is +\n"+
-                         " id = unique node id\n"+
-                         " parentId = id of the node that found the current node\n")
-    dumpMap()
- 
     
-initialCheck()      # First we show some info and the initial map
+initialCheck()      # First we show some info 
+dumpMap()           # Then we show the initial map
 ####################################     LET THE ALGORITHM BEGIN     ####################################  
 start = time.time() # Start measuring the time
 done = False        # classic condition for while loop
@@ -166,7 +143,12 @@ while not done:
                 nodes.append(node)   # Then we add the that node to the end of the list
         # This will cause not all the nodes in the list nodes will be unique. 
         # That's why when we use len(set(nodes)) instead of len(nodes). That way the ids are consecutive.
-end = time.time()# Finish measuring the time. We have already found the goal               
+        
+        
+end = time.time()# Finish measuring the time. We have already found the goal
+
+
+
 print("\n\n%%%%%%%%%%%%%%%%%%  FOUND PATH  %%%%%%%%%%%%%%%%%%%%%%%")
 print("DFS path found, it is not the shortest path")
 print("  * Time of execution :", (end-start)*1000, "ms");

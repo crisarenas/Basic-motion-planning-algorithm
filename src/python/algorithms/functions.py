@@ -43,37 +43,36 @@ def inputStartEnd(cmap):
 
     #START X
     START_X = input("Intro START_X coordinate:")  
-    # while (START_X.isnumeric() == False) or (int(START_X) not in list(range(1,x_len)))
-    #done = False
-    #while not done:
-    #    print("-------------------%")
-    #    if START_X.isnumeric():
-    #        if int(START_X) in list(range(1,x_len)):
-    #            done = True
-    #    START_X = input(f"   Posible options: {list(range(1,x_len))} ") # If not in range then help me. Show me the list of posible options
-    
-    
-    while (int(START_X) not in list(range(1,x_len))) : # Check that START_X is in the correct range (same for the other coordinates)
+    while (START_X.isnumeric() == False) or (float(START_X) not in list(range(1,x_len))): # Check that START_X is in the correct range and if it is a letter (same for the other coordinates) 
         START_X = input(f"   Posible options: {list(range(1,x_len))} ") # If not in range then help me. Show me the list of posible options
     START_X = int(START_X) # If everything ok we convert it to int
 
     #START Y
     START_Y = input("Intro START_Y  coordinate:")
-    while (int(START_Y) not in list(range(1,y_len))):
+    while (START_Y.isnumeric() == False) or (float(START_Y) not in list(range(1,y_len))):
         START_Y = input(f"   Posible options: {list(range(1,y_len))} ")
     START_Y = int(START_Y) # If everything ok we convert it to int      
 
     #END X
     END_X = input("Intro END_X coordinate:")
-    while (int(END_X) not in list(range(1,x_len))):
+    while (END_X.isnumeric() == False) or (float(END_X) not in list(range(1,x_len))):
         END_X = input(f"   Posible options: {list(range(1,x_len))} ")
     END_X = int(END_X) # If everything ok we convert it to int      
 
     #END Y
     END_Y = input("Intro  END_Y coordinate:")
-    while (int(END_Y) not in list(range(1,y_len))):
+    while (END_Y.isnumeric() == False) or (float(END_Y) not in list(range(1,y_len))):
         END_Y = input(f"   Posible options: {list(range(1,y_len))} ")
     END_Y = int(END_Y) # If everything ok we convert it to int
     print("--------------------------------------------------------------")
     return START_X,  START_Y,  END_X,  END_Y
+
+
+# Function to the select map to test
+def selectMap():
+    mapNum = input("What map would you like to test? (Number from 1 to 11):")  
+    while (mapNum.isnumeric() == False) or (float(mapNum) not in list(range(1,12))):
+        mapNum = input(f"   Posible options: {list(range(1,12))} ")
+    
+    return f"../../../map{int(mapNum)}/map{int(mapNum)}.csv"
 

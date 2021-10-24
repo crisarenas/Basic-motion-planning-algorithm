@@ -22,9 +22,12 @@ Example shown below.
 
 
 **IMPORTANT:** inside ``src/python/algorithms`` there are two types of folders: algorithm_basic and algorithm_extras. The *basic* folder contains the algorithm with the minimum requirements just in the case that the ``main.py`` of the *extras* folder doesn't work properly for any reason. 
-- The code works for every map.
-- Github repository with commit history.
-- Functions in a separate folder.
+- Extra 1: Asking which map you would like to test. Check that the answer is valid.
+- Extra 2: Asking for the start and goal points. If you type an incorrect number or a letter then the program will tell you what numbers you can choose.
+
+- Extra x: The code works for every map.
+- Extra x: Github repository with commit history.
+- Extra x: Functions in a separate file to make the code cleaner.
 
 
 ## 2. Project Structure:
@@ -36,7 +39,7 @@ Example shown below.
 
 
 ## Output:
-At the beggining of the output you will find the initial configuration followed by the iterations and finally the found path, time of execution and the number of nodes visited.
+After selecting the map and the start and finish coordinates you will see the initial configuration that you just chose. Then you'll find the iterations. At the end of the output you will see the found path, the time of execution and the number of visited nodes.
 
 
 
