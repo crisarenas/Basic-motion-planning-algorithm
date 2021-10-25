@@ -1,3 +1,4 @@
+import time
 '''
 **Original map**
 * 0: free
@@ -14,7 +15,7 @@
 
 '''
 
-import time
+
 # Initial values are hard coded
 MAP_PATH = "../../../../map2/map2.csv"
 START_X = 2
@@ -167,7 +168,14 @@ while not done:
         # This will cause not all the nodes in the list nodes will be unique.
         # That's why when we use len(set(nodes)) instead of len(nodes). That way the ids are consecutive.
 
+
+
+
 end = time.time()# Finish measuring the time. We have already found the goal               
+
+
+
+
 print("\n\n%%%%%%%%%%%%%%%%%%  FOUND PATH  %%%%%%%%%%%%%%%%%%%%%%%")
 print("DFS path found, it is not the shortest path")
 print("  * Time of execution :", (end-start)*1000, "ms");

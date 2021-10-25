@@ -1,6 +1,5 @@
 import time
 
-#! /usr/bin/env python
 '''
 Mapa original:
 * 0:libre
@@ -15,10 +14,7 @@ A nivel grafo (nosotros):
 * -2: parentId del nodo start
 * -1: parentId del nodo goal  PROVISIONAL cuando aun no se ha resuelto
 
-
-*****repasar lo del constructor y tal.
 '''
-
 
 #Initial values are hard coded (A nivel mapa): se les restan las paredes cuando se dan los puntos
 MAP_PATH = "../../../../map1/map1.csv" #aqui habria que ir cambiando los mapas
@@ -167,6 +163,10 @@ while not done:
 
         dumpMap() #para ver como vamos en cada iteracion
 
+
+end = time.time()
+
+
 print("\n\n___________________________\n\n")
 ok = False
 while not ok:
@@ -178,5 +178,5 @@ while not ok:
                 print("%%%%%%%%%%%%%%%%%2")
                 ok = True
 
-end = time.time()
+
 print("Time of execution :", (end-start)*1000, "ms")

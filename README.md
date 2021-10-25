@@ -38,7 +38,7 @@ Example shown below.
 - **src/python/algorithms/AlgorithmsNotebook**: jupyter notebook that contains the trials that I have done during the development of the project:
 
 
-## Output:
+## 3. Output:
 After selecting the map and the start and finish coordinates you will see the initial configuration that you just chose. Then you'll find the iterations. At the end of the output you will see the found path, the time of execution and the number of visited nodes.
 
 

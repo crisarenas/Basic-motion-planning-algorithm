@@ -74,5 +74,5 @@ def selectMap():
     mapNum = input("What map would you like to test? (Number from 1 to 11):")  
     while (mapNum.isnumeric() == False) or (float(mapNum) not in list(range(1,12))):
         mapNum = input(f"   Posible options: {list(range(1,12))} ")
-    return f"../../../map{int(mapNum)}/map{int(mapNum)}.csv"
+    return f"../../../../map{int(mapNum)}/map{int(mapNum)}.csv"
 
