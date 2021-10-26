@@ -13,9 +13,8 @@
 * -1: parentId goal node when not solved yet
 
 '''
-
 import time
-from functions import * # functions.py with functions and the class Node
+from functions import *
 
 # First we choose a map (functions file)
 MAP_PATH = selectMap()
@@ -70,42 +69,44 @@ while not done:
         nodes[-1].dump()                           # Print info of the last appended node
         
         
-        # We save in these variables the 4 points closer to the last node
-        # UP
+        # We save in these variables the 4 points closer to the last node. We don't consider diagonal directions.
+            # UP
         tmpX_U = nodes[-1].x - 1
         tmpY_U = nodes[-1].y    
         UP = (tmpX_U,tmpY_U)
-        #RIGHT 
+            # RIGHT 
         tmpX_R = nodes[-1].x
         tmpY_R = nodes[-1].y + 1
         RIGHT = (tmpX_R,tmpY_R)
-        # DOWN
+            # DOWN
         tmpX_D = nodes[-1].x + 1
         tmpY_D = nodes[-1].y
         DOWN = (tmpX_D,tmpY_D)
-        # LEFT
+            # LEFT
         tmpX_L = nodes[-1].x
         tmpY_L = nodes[-1].y - 1
         LEFT = (tmpX_L,tmpY_L)
          
-        #Calculates the euclidean distance between the goal and the four new directions
+        #Calculates the euclidean distance between the goal and the four new directions. Save in a list.
         distances = [pow(  pow(END_X-sx,2)+pow(END_Y-sy,2),  0.5) for sx,sy in [UP,RIGHT,DOWN,LEFT]] # List comprehension
         
         # Python dictionary containing the directions and the distance from that cell to the goal point
         distances_dict = {"UP": distances[0],"RIGHT": distances[1],"DOWN": distances[2],"LEFT": distances[3]}
         
-        # Check that the moves are valid
+        # Check that the moves are valid (non-visited or obstacle)
+        # If it is not valid we delete that option from the dictionary.
         if  charMap[tmpX_U][tmpY_U] == '1' or charMap[tmpX_U][tmpY_U] == '2': # If there is an obstacle going up
             del distances_dict['UP']
         if  charMap[tmpX_R][tmpY_R] == '1' or charMap[tmpX_R][tmpY_R] == '2': # If there is an obstacle going right
             del distances_dict['RIGHT']
         if  charMap[tmpX_D][tmpY_D] == '1' or charMap[tmpX_D][tmpY_D] == '2': # If there is an obstacle going down
             del distances_dict['DOWN']
-        if  charMap[tmpX_L][tmpY_L] == '1' or charMap[tmpX_D][tmpY_D] == '2': # If there is an obstacle going left
-            del distances_dict['LEFT']
-            
+        if  charMap[tmpX_L][tmpY_L] == '1' or charMap[tmpX_L][tmpY_L] == '2': # If there is an obstacle going left
+            del distances_dict['LEFT']    
         # Our dictionary now contains valid directions
-        #This calculates the direction with the minimum distance to the goal.
+        
+        
+        # This calculates the direction with the minimum AVAILABLE distance to the goal.
         closer_direction = min(distances_dict, key=distances_dict.get)
                 
         
@@ -122,8 +123,10 @@ while not done:
         else:                            #Going LEFT is closer to the goal
             tmpX = nodes[-1].x
             tmpY = nodes[-1].y - 1
-        print("------------------------------------------")
-        print(closer_direction)
+
+            
+            
+        # Goal or non visited node
         if( charMap[tmpX][tmpY] == '4' ): # If habemus goal
             print(f"{closer_direction} & GOAL!")
             goalParentId = nodes[-1].myId # Change goalParentId. It was -1 but now we want it to be the id of the node
@@ -137,15 +140,10 @@ while not done:
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
             dumpMap() # See map
-            print("%%%%%%%%%%%%%%%%%%%%%")
             continue
 
-
-print("OUTTTTTTTTTTTTTTTTTTTTTTTTTTT")        
+  
 end = time.time()# Finish measuring the time. We have already found the goal
-
-
-
 
 
 

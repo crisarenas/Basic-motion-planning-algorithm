@@ -1,0 +1,30 @@
+## BFS to Greedy algorithm
+
+* El objetivo es adaptar BFS a algo más greedy. 
+    - **Greedy (corto plazo)**: always makes the choice that seems to be the best at that moment. This means that it makes a locally-optimal choice in the hope that this choice will lead to a globally-optimal solution.
+    - **BFS**: examina todos los nodos  para buscar una solución. El algoritmo no usa ninguna estrategia heurística. Va por capas simultaneamente.
+    - **DFS**: va por ramas, termina una rama y empieza otra.
+* Los mapas son sin costes.
+* En el github del primer enlace está lo que hay en el zip.
+* Lo interesante de los mapas está en los csv. Los 0 son huecos y los 1 son paredes u obstaculos.
+* En el readme de cada una de las carpetas de los mapas es donde pone las coordenadas de inicio y fin.
+
+
+Los ejes son x positivo hacia abajo, y positivo a la derecha, z positivo mi.
+    xy---->
+    |
+    |
+    
+En formato matricial x se corresponde con las lineas e y con las columnas.
+
+* El código está en src.
+* Los comentarios están en la branch comments de github del profe.
+
+
+__________________________________________
+
+
+## Hay que entregar un readme en el que expliquemos que hemos hecho brevemente.
+- Subir codigo fuente
+- Un readme que contenga una linea por extra.
+    

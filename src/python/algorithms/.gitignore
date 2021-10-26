@@ -1,0 +1,5 @@
+../../../Notas.txt
+.ipynb_checkpoints/
+__pycache__/
+dfs_extras/__pycache__/ 
+bug2_extras/__pycache__/ 
