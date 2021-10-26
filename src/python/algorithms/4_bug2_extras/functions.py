@@ -11,7 +11,9 @@ class Node:
                          " | id = "+str(self.myId)+\
                          " | parentId = "+str(self.parentId) + "\n______________________________________________")
 
-# Useful info & Show map with the start and goal points placed
+
+
+# Useful info to show at the beggining
 def initialCheck():
     print ("\n\nSELECTED CONFIGURATION:\n"+
                         "~~~~~~~~~~~~~~~~~~~~~~~\n"+
@@ -22,11 +24,15 @@ def initialCheck():
                          " parentId = id of the node that found the current node\n")
 
 
+
+
 # Function that makes sure that the coordinates are valid (free space)
 def checkPoints(cmap,sx,sy,ex,ey):
     while cmap[sx][sy] != '0' or cmap[ex][ey]!= '0' or [sx,sy] == [ex,ey]: #CHeck that the space is free and start!=goal
         print("\nPlease, make sure that you don't hit an obstacle OR start an finish at the same location.\nTry again.\n")
         sx,sy,ex,ey = inputStartEnd(cmap)
+
+
 
 
 
@@ -69,7 +75,10 @@ def inputStartEnd(cmap):
     return START_X,  START_Y,  END_X,  END_Y
 
 
+
+
 # Function to the select map to test
+# Check that it is a number in the range
 def selectMap():
     mapNum = input("What map would you like to test? (Number from 1 to 11):")  
     while (mapNum.isnumeric() == False) or (float(mapNum) not in list(range(1,12))):

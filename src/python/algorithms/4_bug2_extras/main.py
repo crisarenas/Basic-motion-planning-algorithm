@@ -13,8 +13,9 @@
 * -1: parentId goal node when not solved yet
 
 '''
+
 import time
-from functions import *
+from functions import * # functions.py with functions and the class Node
 
 # First we choose a map (functions file)
 MAP_PATH = selectMap()
@@ -134,8 +135,6 @@ while not done:
             break
         elif ( charMap[tmpX][tmpY] == '0' ):# If we found a free non-visited node
             print(f"{closer_direction}:    mark visited")
-            
-            # At the end of the while loop we will understand why we use len(set(nodes) instead if len(nodes)
             newNode = Node(tmpX, tmpY, len(set(nodes)), nodes[-1].myId) # Let's save the new node we found and mark it as visited     
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
