@@ -22,13 +22,18 @@ Example shown below.
 
 
 **IMPORTANT:** inside ``src/python/algorithms`` you can find dfs_extras and bug2_extras, which are the algorithms with these extras implemented. Additionally, you will see a folder called ``2_dfs_minimum_requirements`` which contains the algorithm with the minimum requirements for passing this project. Open it JUST IN THE CASE that the ``main.py`` of the *extras* folders don't work properly for any reason. 
-- Extra 1: Two greedy algorithms implement, DFS and Bug 2 algorithm.
-- Extra 2: More information showed in the output.
+- Extra 1: Two greedy algorithms implement, DFS with backtracking and Bug 2.
+- Extra 2: More information showed in the output. 
+- Extra X: Also, a colored map is shown by using ANSI escape codes.
 - Extra 3: Asking which map you would like to test. Check that the answer is a valid map.
 - Extra 4: Asking for the start and goal points. If you type an incorrect number or a letter, the program will tell you what numbers you can choose.
-- Extra 5: The code works  and is tested for every map.
-- Extra 6: Github repository with commit history.
+- Extra 5: A new map was created. The map is called map12 and it is a lethal map full of obstacles. You can see it in the mapX folder.
+- Extra 6: Time study in ``src/python/algorithms/Time_Analysis.ipynb``. It was performed in equal conditions for the 3 algorithms, this means with no extra functions implemented so none of them took extra time executing those functions.
+- Extra X: YouTube video.
 - Extra 7: Functions in a separate file to make the code cleaner.
+- Extra 8: The code works  and is tested for every map.
+- Extra 9: Github repository with commit history.
+
 
 
 ## 2. Project Structure:

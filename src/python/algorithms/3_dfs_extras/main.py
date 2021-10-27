@@ -13,7 +13,6 @@
 * -1: parentId goal node when not solved yet
 
 '''
-
 import time
 from functions import * # functions.py with functions and the class Node
 
@@ -51,14 +50,10 @@ init = Node(START_X, START_Y, 0, -2) # Node class object defined in functions.py
 nodes.append(init)
 
 
-# Function that shows the map on terminal
-def dumpMap():
-    for line in charMap:
-        print(line)
+# First we show some info and the initial configuration    
+initialCheck(charMap)  # First we show some info and the initial configuration
 
-    
-initialCheck()      # First we show some info 
-dumpMap()           # Then we show the initial map
+
 ####################################     LET THE ALGORITHM BEGIN     ####################################  
 start = time.time() # Start measuring the time
 done = False        # classic condition for while loop
@@ -83,7 +78,7 @@ while not done:
             newNode = Node(tmpX, tmpY, len(set(nodes)), nodes[-1].myId) # Let's save the new node we found and mark it as visited     
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
-            dumpMap() # See map
+            dumpMap(charMap) # See map
             continue
         # Same logic for right, down and left
                     
@@ -100,7 +95,7 @@ while not done:
             newNode = Node(tmpX, tmpY, len(set(nodes)), nodes[-1].myId)
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
-            dumpMap() # See map
+            dumpMap(charMap) # See map
             continue
 
         # DOWN
@@ -116,7 +111,7 @@ while not done:
             newNode = Node(tmpX, tmpY, len(set(nodes)), nodes[-1].myId) # tempX e Y son valores temporales con el incremento sumado
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
-            dumpMap() # See mapv
+            dumpMap(charMap) # See mapv
             continue
 
         # LEFT
@@ -132,7 +127,7 @@ while not done:
             newNode = Node(tmpX, tmpY, len(set(nodes)), nodes[-1].myId)
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
-            dumpMap() # See map
+            dumpMap(charMap) # See map
             continue
             
         # When the Cell has exhausted its posibilities and can't go to any direction because wall or visited
@@ -153,6 +148,7 @@ print("\n\n%%%%%%%%%%%%%%%%%%  FOUND PATH  %%%%%%%%%%%%%%%%%%%%%%%")
 print("DFS path found, it is not the shortest path")
 print("  * Time of execution :", (end-start)*1000, "ms");
 print("  * Number of unique nodes in list nodes = " ,len(set(nodes)) ,"\n") # By using set, we just select the unique nodes.
+printColored(charMap)
 ok = False
 while not ok:
     for node in nodes:

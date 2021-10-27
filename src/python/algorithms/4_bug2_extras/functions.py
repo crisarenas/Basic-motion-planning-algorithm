@@ -14,7 +14,7 @@ class Node:
 
 
 # Useful info to show at the beggining
-def initialCheck():
+def initialCheck(cmap):
     print ("\n\nSELECTED CONFIGURATION:\n"+
                         "~~~~~~~~~~~~~~~~~~~~~~~\n"+
                         "Remember!\n"+
@@ -22,6 +22,15 @@ def initialCheck():
                          " y = right is +\n"+
                          " id = unique node id\n"+
                          " parentId = id of the node that found the current node\n")
+    printColored(cmap)
+
+
+
+
+# Function that shows the charMap on terminal
+def dumpMap(charMap):
+    for line in charMap:
+        print(line)
 
 
 
@@ -45,8 +54,7 @@ def inputStartEnd(cmap):
            "To locate the start and goal point REMEMBER that starting from the left upper 0,"+
            "positive x goes down and positive y goes right.")
     # Show the selected matrix
-    for line in cmap:
-        print(line)
+    printColored(cmap)
 
     #START X
     START_X = input("Intro START_X coordinate:")  
@@ -80,8 +88,20 @@ def inputStartEnd(cmap):
 # Function to the select map to test
 # Check that it is a number in the range
 def selectMap():
-    mapNum = input("What map would you like to test? (Number from 1 to 11):")  
-    while (mapNum.isnumeric() == False) or (float(mapNum) not in list(range(1,12))):
-        mapNum = input(f"   Posible options: {list(range(1,12))} ")
+    mapNum = input("What map would you like to test? (Number from 1 to 12):")  
+    while (mapNum.isnumeric() == False) or (float(mapNum) not in list(range(1,13))):
+        mapNum = input(f"   Posible options: {list(range(1,13))} ")
     return f"../../../../map{int(mapNum)}/map{int(mapNum)}.csv"
 
+
+
+# Functions that set the colors for the map
+def colorMap(i):
+    return "\033[3{}m{}\033[0m".format(i+1, i)
+
+import numpy as np
+# Function that prints the colored Map
+def printColored(charMap):
+    intMap = (np.array(charMap)).astype(np.int)    # Converts charMap to numpy int matrix
+    map_modified = np.vectorize(colorMap)(intMap)  # Vectorize de color Map
+    print("\n".join([" ".join(["{}"]*len(charMap[0]))]*len(charMap)).format(*[x for y in map_modified.tolist() for x in y]))

@@ -1,5 +1,5 @@
-Notes.txt/
-.ipynb_checkpoints/
+Notes.txt
+Time_Analysis/.ipynb_checkpoints/
 __pycache__/
 3_dfs_extras/__pycache__/ 
 4_bug2_extras/__pycache__/ 
