@@ -55,6 +55,7 @@ initialCheck(charMap)  # First we show some info and the initial configuration
 
 
 ####################################     LET THE ALGORITHM BEGIN     ####################################  
+#This algorithm is similiar to bug2, but not the same. What it does is choosing always the closer node to the cell.
 start = time.time() # Start measuring the time
 done = False        # classic condition for while loop
 goalParentId = -1   # parentId of provisional goal point when not solved
@@ -91,19 +92,29 @@ while not done:
         
         # Check that the moves are valid (non-visited or obstacle)
         # If it is not valid we delete that option from the dictionary.
-        if  charMap[tmpX_U][tmpY_U] == '1' or charMap[tmpX_U][tmpY_U] == '2': # If there is an obstacle going up
+        if  charMap[tmpX_U][tmpY_U] != '0' and charMap[tmpX_U][tmpY_U] != '4': # No free space up or goal
             del distances_dict['UP']
-        if  charMap[tmpX_R][tmpY_R] == '1' or charMap[tmpX_R][tmpY_R] == '2': # If there is an obstacle going right
+        if  charMap[tmpX_R][tmpY_R] != '0' and charMap[tmpX_R][tmpY_R] != '4': # No free space right or goal
             del distances_dict['RIGHT']
-        if  charMap[tmpX_D][tmpY_D] == '1' or charMap[tmpX_D][tmpY_D] == '2': # If there is an obstacle going down
+        if  charMap[tmpX_D][tmpY_D] != '0' and charMap[tmpX_D][tmpY_D] != '4': # No free space down or goal
             del distances_dict['DOWN']
-        if  charMap[tmpX_L][tmpY_L] == '1' or charMap[tmpX_L][tmpY_L] == '2': # If there is an obstacle going left
-            del distances_dict['LEFT']    
+        if  charMap[tmpX_L][tmpY_L] != '0' and charMap[tmpX_L][tmpY_L] != '4': # No free space left or goal
+                del distances_dict['LEFT']    
         # Our dictionary now contains valid directions
         
+        #If the dict is not empty by now 
+        if len(distances_dict) > 0:
+            # This calculates the direction with the minimum AVAILABLE distance to the goal.
+            closer_direction = min(distances_dict, key=distances_dict.get)
+        else: # The Cell has exhausted its posibilities and can't go to any direction because wall or visited
+            # We search for the parent node of our last node.
+            for node in nodes: 
+                if nodes[-1].parentId == node.myId: # If we find a node with an id that tells me "Hey! I am the parent of the current node!"
+                    print("Going backwards to...")
+                    nodes.append(node)   # Then we add the that node to the end of the list
+            # This will cause not all the nodes in the list nodes will be unique. 
+            # That's why when we use len(set(nodes)) instead of len(nodes). That way the ids are consecutive.
         
-        # This calculates the direction with the minimum AVAILABLE distance to the goal.
-        closer_direction = min(distances_dict, key=distances_dict.get)
                 
         
         # Keep the tmpX and tmpY position of the cell that is closer to the goal point
@@ -136,6 +147,8 @@ while not done:
             #dumpMap(charMap) # See map
             printColored(charMap)
             continue
+
+     
 
   
 end = time.time()# Finish measuring the time. We have already found the goal

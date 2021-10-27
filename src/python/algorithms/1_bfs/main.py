@@ -17,16 +17,12 @@ A nivel grafo (nosotros):
 '''
 
 #Initial values are hard coded (A nivel mapa): se les restan las paredes cuando se dan los puntos
-'''MAP_PATH = "../../../../map1/map1.csv" #aqui habria que ir cambiando los mapas
+MAP_PATH = "../../../../map1/map1.csv" #aqui habria que ir cambiando los mapas
 START_X = 2
 START_Y = 2
 END_X = 7
-END_Y = 2'''
-MAP_PATH = "../../../../map2/map2.csv" #aqui habria que ir cambiando los mapas
-START_X = 10
-START_Y = 7
-END_X = 2
 END_Y = 2
+
 
 #Define node class (A nivel grafo/nodo)
 '''

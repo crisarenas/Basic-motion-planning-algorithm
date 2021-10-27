@@ -78,7 +78,7 @@ while not done:
             newNode = Node(tmpX, tmpY, len(set(nodes)), nodes[-1].myId) # Let's save the new node we found and mark it as visited     
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
-            dumpMap(charMap) # See map
+            printColored(charMap) # See map
             continue
         # Same logic for right, down and left
                     
@@ -95,7 +95,7 @@ while not done:
             newNode = Node(tmpX, tmpY, len(set(nodes)), nodes[-1].myId)
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
-            dumpMap(charMap) # See map
+            printColored(charMap) # See map
             continue
 
         # DOWN
@@ -111,7 +111,7 @@ while not done:
             newNode = Node(tmpX, tmpY, len(set(nodes)), nodes[-1].myId) # tempX e Y son valores temporales con el incremento sumado
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
-            dumpMap(charMap) # See mapv
+            printColored(charMap) # See mapv
             continue
 
         # LEFT
@@ -127,7 +127,7 @@ while not done:
             newNode = Node(tmpX, tmpY, len(set(nodes)), nodes[-1].myId)
             charMap[tmpX][tmpY] = '2'
             nodes.append(newNode)
-            dumpMap(charMap) # See map
+            printColored(charMap) # See map
             continue
             
         # When the Cell has exhausted its posibilities and can't go to any direction because wall or visited
