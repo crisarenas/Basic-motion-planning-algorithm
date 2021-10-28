@@ -26,10 +26,9 @@ An example is shown below.
 - Extra 5: Asking for the start and goal points. If you type an incorrect number or a letter, the program will tell you what numbers you can choose.
 - Extra 6: A new map was created. The map is called map12 and it has more obstacles than the other maps. You can see it in the map12 folder.
 - Extra 7: Time study in ``src/python/algorithms/Time_Analysis``. It was performed in equal conditions for the 3 algorithms, this means with no extra functions implemented so none of them took extra time executing those functions.
-- Extra 8: YouTube video.
-- Extra 9: Functions in a separate file to make the code cleaner.
-- Extra 10: The code works and is tested for every map.
-- Extra 11: Github repository with commit history.
+- Extra 8: Functions in a separate file to make the code cleaner.
+- Extra 9: The code works and is tested for every map.
+- Extra 10: [Github repository](https://github.com/crisarenas/Basic-motion-planning-algorithm) with commit history. 
 
 
 ## 2. Project Structure:
@@ -37,7 +36,7 @@ An example is shown below.
 
 - **maps**: each map contains a `map.csv` with the matrix, a ``map.png ``with a picture of the map and a ``README.md`` that specifies the suggested start and goal points.
 
-- **src/python/algorithms/Time_Analysis**: jupyter notebook with the time study and the .csv with the data to analyze.
+- **src/python/algorithms/Time_Analysis**: jupyter notebook with the time study.
 
 ## 3. Output:
 - After selecting the map and the start and finish coordinates you will see the initial configuration that you just chose. Then you'll find the iterations. At the end of the output, you will see the found path, the time of execution, the number of unique nodes visited and the number of total nodes visited (including backtracking).
