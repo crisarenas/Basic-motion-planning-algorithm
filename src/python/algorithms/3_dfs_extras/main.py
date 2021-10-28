@@ -147,7 +147,8 @@ end = time.time()# Finish measuring the time. We have already found the goal
 print("\n\n%%%%%%%%%%%%%%%%%%  FOUND PATH  %%%%%%%%%%%%%%%%%%%%%%%")
 print("DFS path found, it is not the shortest path")
 print("  * Time of execution :", (end-start)*1000, "ms");
-print("  * Number of unique nodes in list nodes = " ,len(set(nodes)) ,"\n") # By using set, we just select the unique nodes.
+print("  * Number of unique nodes in list nodes = " ,len(set(nodes))) # By using set, we just select the unique nodes.
+print("  * Number of nodes visited (including backtracking) = " ,len(nodes) ,"\n")
 printColored(charMap)
 ok = False
 while not ok:
